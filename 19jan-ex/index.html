@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container mt-5" style="max-width: 405px">
+      <div class="text-center"></div>
+      <div class="card-body">
+        <h1 class="text-center">
+          <span class="badge bg-secondary">SIGN IN</span>
+        </h1>
+        <div class="container mt-5">
+          <form>
+            <div class="form-floating mb-1">
+              <input
+                type="email"
+                class="form-control"
+                id="Email"
+                placeholder="name@example.com"
+                oninput="checkEmailCriteria()"
+              />
+              <label for="Email">Email address</label>
+              <div class="form-floating mb-4">
+                <p id="emailResult" style="color: green"></p>
+              </div>
+            </div>
+
+            <div class="form-floating mb-4">
+              <input
+                type="password"
+                class="form-control"
+                id="Password"
+                placeholder="Password"
+                oninput="checkPasswordCriteria()"
+              />
+              <label for="Password">Password</label>
+              <p id="passwordResult" style="color: green"></p>
+            </div>
+
+            <div class="form-check mb-4">
+              <input type="checkbox" class="form-check-input" id="rememberMe" />
+              <label class="form-check-label" for="rememberMe"
+                >Remember me</label
+              >
+            </div>
+
+            <div class="form-floating mb-4">
+              <div class="d-grid gap-2">
+                <button class="btn btn-secondary" type="submit">Sign In</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div>&copy; Tufan  2023-2024</div>
+    </div>
+    <script>
+      function checkEmailCriteria() {
+        const email = document.getElementById("Email").value;
+        const emailResult = document.getElementById("emailResult");
+
+        const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (pattern.test(email)) {
+          emailResult.textContent = "Email meets criteria";
+          emailResult.style.color = "green";
+        } else {
+          emailResult.textContent = "Email does not meet criteria";
+          emailResult.style.color = "red";
+        }
+      }
+
+      function checkPasswordCriteria() {
+        const password = document.getElementById("Password").value;
+        const passwordResult = document.getElementById("passwordResult");
+
+        const pattern =
+          /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
+
+        if (pattern.test(password)) {
+          passwordResult.textContent = "Password meets criteria";
+          passwordResult.style.color = "green";
+        } else {
+          passwordResult.textContent = "Password does not meet criteria";
+          passwordResult.style.color = "red";
+        }
+      }
+    </script>
+  </body>
+</html>

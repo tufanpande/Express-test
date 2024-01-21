@@ -1,5 +1,5 @@
 
-      function checkEmailCriteria() {
+      function checkEmail() {
         const email = document.getElementById("Email").value;
         const emailResult = document.getElementById("emailResult");
 
@@ -14,7 +14,7 @@
         }
       }
 
-      function checkPasswordCriteria() {
+      function checkPassword() {
         const password = document.getElementById("Password").value;
         const passwordResult = document.getElementById("passwordResult");
 

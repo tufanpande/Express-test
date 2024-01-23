@@ -23,3 +23,17 @@ const tText=(string)=> string.length> 10 ? string.slice(0,10).concat("...") : st
  };
 const result= validPhoneNumber(9841123232);
 console.log({result});
+
+
+const arrA=["Pasta","pizza","Ice-cream"];
+const arrB=["Pasta","cake","Ice-cream"];
+const resultt=(solution)=>{
+   return solution;
+};
+
+const compArray=(arrA,arrB,result)=>{
+   const ans = arrA.filter((food)=> arrB.includes(food));
+      return resultt(ans);
+};
+const responses= compArray(arrA,arrB,result);
+console.log({responses});

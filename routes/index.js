@@ -14,10 +14,10 @@ const router = require("express").Router();
 //     res.json({msg:"Hello tufan"});
 // });
 
-// // printing Hello world  ROute 1 
-// router.get("/",(req, res)=>{
-//     res.json({msg:"Hello world"});
-// });
+// printing Hello world  ROute 1 
+router.get("/",(req, res)=>{
+    res.json({msg:"Hello world"});
+});
 // // Route 2
 // router.get("/:name/:come",(req, res)=>{
 //     const data = req.params.name;
@@ -32,9 +32,8 @@ const router = require("express").Router();
 //     res.json({msg:`The sum is ${sum} `});
 // });
 // router.get("/:random", (req, res) => {
-//     //make a random number console using callback function in express js
-//     const ran = Math.floor(Math.random() * 17);
-//     res.json({ msg: `${ran}` });
+//         const rand = Math.floor(Math.random() * 17);
+//     res.json({ msg: `${rand}` });
 //   });
 
   router.use("/books", booksRouter);
@@ -43,3 +42,5 @@ const router = require("express").Router();
   router.use("/roles",rolesRouter);
   router.use("/categories",categoriesRouter);
 module.exports = router;
+
+

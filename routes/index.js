@@ -1,10 +1,20 @@
 const router = require("express").Router();
 
  const booksRouter=  require("./book.route");
- const userRouter= require("./user.routes");
+ const userRouter= require("./user.route");
  const blogsRouter = require("./blogs.routes");
- const rolesRouter =require("./roles.routes");
- const categoriesRouter =require("./categories.routes");
+ const rolesRouter =require("./roles.route");
+ const categoriesRouter =require("./categories.route")
+ const apiIndex= "api/v1";
+
+ router.get("/",(req,res,next)=>{
+  try{
+  console.log({body:req.body});
+  res.json({msg: "hello from index"});
+  }catch(e){
+    next(e);
+  }
+ });
 
 // // printing Hello world 
 // router.get("/",(req, res)=>{
@@ -15,9 +25,9 @@ const router = require("express").Router();
 // });
 
 // printing Hello world  ROute 1 
-router.get("/",(req, res)=>{
-    res.json({msg:"Hello world"});
-});
+// router.get("/",(req, res)=>{
+//     res.json({msg:"Hello world"});
+// });
 // // Route 2
 // router.get("/:name/:come",(req, res)=>{
 //     const data = req.params.name;
@@ -41,6 +51,7 @@ router.get("/",(req, res)=>{
   router.use("/blogs",blogsRouter);
   router.use("/roles",rolesRouter);
   router.use("/categories",categoriesRouter);
+  router.use(`${apiIndex}/books`, booksRouter);
 module.exports = router;
 
 

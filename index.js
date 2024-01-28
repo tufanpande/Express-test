@@ -2,8 +2,16 @@ const express = require("express");
 
 
 const indexRouter = require("./routes");
+
 const app = express();
 app.use(express.json());
+
+app.use((res, req, next)=>{
+    const date=new Date().toISOString();
+    console.log({date});
+    req.body.date= date;
+    next();
+});
 
 app.use("/", indexRouter);
 
@@ -12,7 +20,7 @@ app.use((err,req, res,next)=>{
     res.status(500).json({msg: err});
 });
 app.listen(8000,()=>{
-    console.log("Application is running");
+    console.log("Application is running  on url: localhost/8000");
 });
 
 

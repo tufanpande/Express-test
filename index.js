@@ -19,7 +19,7 @@ app.use((err,req, res,next)=>{
     err= err ? err.toString() :"something went wrong...";
     res.status(500).json({msg: err});
 });
-app.listen(8000,()=>{
+app.listen(7070,()=>{
     console.log("Application is running  on url: localhost/8000");
 });
 

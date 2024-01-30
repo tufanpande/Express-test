@@ -1,10 +1,14 @@
 const router= require("express").Router();
+
 // const {numberFormatter}= require("../utils/numberFormatter");
 
 // router.get("/", (req, res)=>{
 //     res.json({msg:"hello from book"});
 // });
-router.get("/", (req, res,next)=>{
+
+
+
+router.get("/",(req, res,next)=>{
 
     try{
         // const {id }=req.params;

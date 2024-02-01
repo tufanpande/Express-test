@@ -1,11 +1,12 @@
 const express = require("express");
-
-
 const indexRouter = require("./routes");
+const mongoose= require("mongoose");
 
 const app = express();
 app.use(express.static("public"));
-
+mongoose.connect("mongodb://localhost:27017/blog_app").then(()=>{
+    console.log("Database is connected");
+});
 app.use(express.json());
 
 // app.use((res, req, next)=>{

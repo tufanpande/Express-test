@@ -1,20 +1,22 @@
 const router = require("express").Router();
 
  const booksRouter=  require("./book.route");
- const userRouter= require("./user.route");
+ const userRouter= require("./useeer.route");
  const blogsRouter = require("./blogs.routes");
  const rolesRouter =require("./roles.route");
  const categoriesRouter =require("./categories.route")
+ const blogRouter= require("../modules/blogs/blog.route")
  const apiIndex= "api/v1";
 
  router.get("/",(req,res,next)=>{
   try{
   console.log({body:req.body});
-  res.json({msg: "hello from index"});
+  res.json({msg: "hello from index router"});
   }catch(e){
     next(e);
   }
  });
+ 
 
 // // printing Hello world 
 // router.get("/",(req, res)=>{
@@ -45,7 +47,7 @@ const router = require("express").Router();
 //         const rand = Math.floor(Math.random() * 17);
 //     res.json({ msg: `${rand}` });
 //   });
-
+  router.use("/blogs",blogRouter);
   router.use("/books", booksRouter);
   router.use("/user",userRouter);
   router.use("/blogs",blogsRouter);

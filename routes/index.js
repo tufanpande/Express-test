@@ -18,10 +18,10 @@ const router = require("express").Router();
  });
  
 
-// // printing Hello world 
-// router.get("/",(req, res)=>{
-//     res.json({msg:"Hello world"});
-// });
+// printing Hello world 
+router.get("/",(req, res)=>{
+    res.json({msg:"Hello world"});
+});
 // router.get("/tufan",(req, res)=>{
 //     res.json({msg:"Hello tufan"});
 // });

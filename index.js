@@ -1,6 +1,7 @@
-require("dotenv").config();
-const express = require("express");
-const indexRouter = require("./routes");
+require("dotenv").config();//for connect DB
+const morgan= require("morgan");//for logging(data history) Function
+const express = require("express");//exporting Express Modules
+const indexRouter = require("./routes");//getting 
 const mongoose= require("mongoose");
 const PORT= Number(process.env.PORT);
 const app = express();
@@ -10,6 +11,7 @@ const app = express();
 mongoose.connect(process.env.DB).then(()=>{
     console.log("Database is connected");
 });
+
 app.use(express.static("public"));
 
 app.use(express.json());
@@ -20,6 +22,17 @@ app.use(express.json());
    
 //     next();
 // });
+
+//middleware
+// app.use((req,res,next)=>{
+//     req.body.country="Nepal";
+//     next();
+// });
+
+
+
+
+app.use(morgan("dev"));
 
 app.use("/", indexRouter);
 
